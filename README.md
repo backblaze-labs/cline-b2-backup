@@ -1,8 +1,10 @@
 # cline-b2-backup
 
+**Encrypted, incremental, off-site backups for your AI coding agent — powered by [Backblaze B2 cloud storage](https://blze.ai/storage).**
+
 Incremental, **encrypted** backup of your [Cline](https://github.com/cline/cline) task history, conversations, and state to [Backblaze B2](https://www.backblaze.com/cloud-storage) — across VS Code, Insiders, VSCodium, Cursor, and Windsurf.
 
-Built on [`@backblaze-labs/agent-backup-core`](https://github.com/backblaze-b2-samples/agent-backup-core).
+Built on [`@backblaze-labs/agent-backup-core`](https://github.com/backblaze-labs/agent-backup-core).
 
 ## Why
 
@@ -44,11 +46,16 @@ Cline splits its state across two locations; this tool covers both and auto-disc
 
 ### Restore note
 
-Restoring writes back into the same editor/profile directories the backup came from, so restore onto a fresh machine expects those editors to be installed (Cline run at least once). Backup itself has no such requirement.
+Restoring writes back into the same editor/profile directories the backup came from. On a fresh machine, an editor whose `globalStorage` directory doesn't exist yet (the editor was never launched, or has a different product/profile name) is **silently skipped** — its data is left in B2, not restored — and the restore logs a per-file warning rather than failing. So before restoring, install and launch each editor (so Cline's storage dir exists). Backup itself has no such requirement.
 
 ## Security
 
 - **Set `B2_ENCRYPTION_KEY`** — separate from your B2 credentials. Cline stores provider **API keys in plaintext** at `~/.cline/data/secrets.json`; this tool includes that file (needed for a full restore) but encrypts the whole mirror at rest. Without `B2_ENCRYPTION_KEY` it falls back to the B2 key and warns.
+
+## Learn more
+
+- [Backblaze B2 Cloud Storage](https://blze.ai/storage) — affordable, S3-compatible object storage
+- [agent-backup-core](https://github.com/backblaze-labs/agent-backup-core) — the shared backup engine powering this tool
 
 ## License
 

@@ -1,6 +1,6 @@
 {
   "name": "@backblaze-labs/cline-b2-backup",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Back up your Cline (VS Code / Cursor / Windsurf) task history, conversations, and state to Backblaze B2: incremental and encrypted.",
   "type": "module",
   "main": "dist/index.mjs",
@@ -25,7 +25,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@backblaze-labs/agent-backup-core": "^0.2.0"
+    "@backblaze-labs/agent-backup-core": "^0.3.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
@@ -40,17 +40,24 @@
     "access": "public"
   },
   "keywords": [
+    "backblaze",
+    "b2",
+    "backup",
     "cline",
     "vscode",
     "cursor",
     "windsurf",
-    "backblaze",
-    "b2",
-    "backup"
+    "ai-agent",
+    "coding-agent",
+    "cloud-storage",
+    "encryption",
+    "cli",
+    "b2-labs"
   ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/backblaze-b2-samples/cline-b2-backup"
-  }
+    "url": "git+https://github.com/backblaze-labs/cline-b2-backup.git"
+  },
+  "homepage": "https://blze.ai/storage"
 }
